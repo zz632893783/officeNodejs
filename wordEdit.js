@@ -2,7 +2,7 @@
 const fs = require('fs');
 const PizZip = require('pizzip');
 const Docxtemplater = require('docxtemplater');
-const { formatDate } = require('./util.js');
+const { formatDate, readFilePath } = require('./util.js');
 
 // 读取的文件路径
 const inputFilePath = './origin.docx';
