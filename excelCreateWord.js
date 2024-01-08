@@ -1,4 +1,4 @@
-// 南陵
+// 南陵项目读取 excel 单元格内容，并批量生成 word 文档
 const ExcelJS = require('exceljs');
 const fs = require('fs');
 const PizZip = require('pizzip');
