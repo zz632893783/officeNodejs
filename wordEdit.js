@@ -15,10 +15,8 @@ const doc = new Docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
 // 源文档中，被 {} 包裹的文字，例如 { first_name } 会被替换为 render 传参中的值
 // 如下
 doc.render({
-    first_name: '我是你爹',
-    last_name: 'Doe',
-    phone: '0652455478',
-    description: 'New Website'
+    date: '我是你爹',
+    content: '内容内容内容内容内容内容内容'
 });
 
 const buf = doc.getZip().generate({

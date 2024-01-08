@@ -14,6 +14,8 @@ const rows = [
 
 rows.forEach(row => worksheet.addRow(row));
 
+const column = table.getColumn(1);
+
 // 保存文件到本地
 const fileName = `${ formatDate(new Date()) }.xlsx`;
 workbook.xlsx.writeFile(fileName)
