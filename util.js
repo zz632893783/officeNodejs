@@ -15,8 +15,8 @@ const formatDate = (date, format = 'yyyy-MM-dd_HH：mm：ss') => {
 // 读取某个目录下的所有文件
 // rootPath 为根目录
 // regExp 为文件名匹配的正则
-// 用法 readFilePath('./root', /\.txt$/).then(pathList => console.log(pathList))
-const readFilePath = async (rootPath, regExp = /./) => {
+// 用法 readDirAllFilePath('./root', /\.txt$/).then(pathList => console.log(pathList))
+const readDirAllFilePath = async (rootPath, regExp = /./) => {
     const filePathCache = [];
     (function fn(dir) {
         const files = fs.readdirSync(dir);
@@ -31,5 +31,5 @@ const readFilePath = async (rootPath, regExp = /./) => {
 
 module.exports = {
     formatDate,
-    readFilePath
+    readDirAllFilePath
 };
