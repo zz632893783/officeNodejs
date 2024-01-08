@@ -7,13 +7,14 @@ const { formatDate } = require('./util.js');
 // 输出目录
 const outputPath = './output/month/';
 // 如果目录不存在，则创建目录
+!fs.existsSync('./output/') && fs.mkdirSync('./output/');
 !fs.existsSync(outputPath) && fs.mkdirSync(outputPath);
 // 创建一个工作簿
 const workbook = new ExcelJS.Workbook();
 // 每日计划问题缓存列表
 const plans = [];
 // 加载工作表
-workbook.xlsx.readFile('./monthData.xlsx').then(() => {
+workbook.xlsx.readFile('./input/monthData.xlsx').then(() => {
     // 选择第一个工作表
     const worksheet = workbook.getWorksheet(1);
     worksheet.eachRow({ includeEmpty: false }, row => {
@@ -30,7 +31,7 @@ workbook.xlsx.readFile('./monthData.xlsx').then(() => {
     const date = new Date(2023, 7);
     plans.forEach(plan => {
         // 读取 word 模板文件
-        const content = fs.readFileSync('./南陵县新型智慧城市建设工程项目-城运中心子项目-施工月报（8月）.docx', 'binary');
+        const content = fs.readFileSync('./input/monthTemplate.docx', 'binary');
         // 创建 word 编辑模块
         const doc = new Docxtemplater(new PizZip(content), { paragraphLoop: true, linebreaks: true });
         // word 模板替换
